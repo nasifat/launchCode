@@ -2,19 +2,16 @@ package launchCode;
 
 public class RawMaterial {
 
-	private String id ; 
+	private  int materialId ; 
 	private String name;
 	private String unitPrice;
 	private String totalPrice;
 	private String description;
 	private String userId;
-	private String date;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	private int quantity;
+	private String unit;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -45,11 +42,23 @@ public class RawMaterial {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getDate() {
-		return date;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getMaterialId() {
+		return materialId;
+	}
+	public void setMaterialId(int materialId) {
+		this.materialId = materialId;
+	}
+	public String getUnit() {
+		return unit;
+	}
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	
 }

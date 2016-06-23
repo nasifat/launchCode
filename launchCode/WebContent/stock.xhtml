@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<h:form>
+		<fieldset>
+			<legend>
+				<h:h3>Stock Form</h:h3>
+			</legend>
+			ID Number:<br></br>
+			<h:inputText value="#{stockBean.idNumber}"></h:inputText>
+			<br></br> Name:<br></br>
+			<h:inputText value="#{stockBean.name}"></h:inputText>
+			<br></br> Description:<br></br>
+			<h:inputText value="#{stockBean.description}"></h:inputText>
+			<br></br> Quantity:<br></br>
+			<h:inputText value="#{stockBean.quantity}"></h:inputText>
+			<br></br>Unit Price:<br></br>
+			<h:inputText value="#{stockBean.unitPrice}"></h:inputText>
+			<br></br>Unit:<br></br>
+			<h:inputText value="#{stockBean.unit}"></h:inputText>
+			<br></br>
+
+			<h:commandButton value="Submit" actionListener="#{stockBean.stockData}">
+			</h:commandButton>
+		</fieldset>
+	</h:form>
+</h:body>
+</html>

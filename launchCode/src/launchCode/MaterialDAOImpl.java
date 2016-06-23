@@ -37,20 +37,29 @@ public class MaterialDAOImpl implements MaterialDAO {
 	}
 
 	@Override
-	public void upDate() throws SQLException {
-		// TODO Auto-generated method stub
-		preparedStatement = connection.prepareStatement("insert into javaTestDB.test_table values (default,?)");
-        preparedStatement.setString(1,"insert test from java");
+	public void upDate(RawMaterial rawMaterial) throws SQLException, ClassNotFoundException {
+		Class.forName(jdbcDriverStr);
+        connection = DriverManager.getConnection(jdbcURL,"root","4862");
+		preparedStatement = connection.prepareStatement("insert into Inventory_app.raw_material "
+				+ "(material_id,name,description,quantity,unit,total_price,unit_price,user_id) "
+				+ "values (?,?,?,?,?,?,?,?)");
+        preparedStatement.setInt(1, rawMaterial.getMaterialId());
+        preparedStatement.setString(2,rawMaterial.getName());
+        preparedStatement.setString(3, rawMaterial.getDescription());
+        preparedStatement.setInt(4,rawMaterial.getQuantity());
+        preparedStatement.setString(5, rawMaterial.getUnit());
+        preparedStatement.setString(6,rawMaterial.getTotalPrice());
+        preparedStatement.setString(7, rawMaterial.getUnitPrice());
+        preparedStatement.setString(8, rawMaterial.getUserId());
         preparedStatement.executeUpdate();
 	}
-
 	@Override
 	public List<RawMaterial> findALl() throws Exception {
 		try {
         Class.forName(jdbcDriverStr);
-        connection = DriverManager.getConnection(jdbcURL);
+        connection = DriverManager.getConnection(jdbcURL,"root","4862");
         statement = connection.createStatement();
-        resultSet = statement.executeQuery("select * from javaTestDB.test_table;");
+        resultSet = statement.executeQuery("select * from Inventory_app.raw_material;");
         getResultSet(resultSet);
         
     } catch (SQLException e) {
@@ -77,6 +86,5 @@ public class MaterialDAOImpl implements MaterialDAO {
 	            System.out.println("text: "+text);
 	        }
 	}
-	
 
 }
